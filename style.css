@@ -1,1 +1,14 @@
+.left-sidebar {
+	width: 25%;
+	float: left;
+}
 
+.main {
+	width: 49%;
+	float: left;
+}
+
+.right-sidebar {
+	width: 25%;
+	float: left;
+}
