@@ -11,18 +11,47 @@
 	<script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>	
 	<script>
-	 $(function() {
-	  $("#accordion").accordion({
-	    collapsible: true,
-        heightStyle: "content",
+	  var state;
+
+          $(function() {
+	   $("#popular").accordion({
+	     collapsible: true,
+             heightStyle: "content",
+	   });
+
+	   state = "home";
 	  });
-	 });
+
+          function notImplemented() {
+            alert("Não está implementado");
+	  }
+
+	  function doAlc1() {
+		  if (state == "home") {
+	            $("#alc1").show();
+		    state = "alc1";
+		  }
+	  }
+
+	  function doAlc2() {
+	    setTimeout(function() {
+	        $("#alc1").hide();
+	        $("#alc2").show();
+	      }, 4000);	   
+	    state = "alc2"; 
+	  }
+
+  	 function goHome() {
+		 $("#alc1").hide();
+		 $("#alc2").hide();
+		 state = "home";
+	 }
 	</script>
   </head>
   <body>
      
 	 <div class = "left-sidebar">
-	   <div id="accordion">
+	   <div id="popular">
 	     <h3>Popular</h3>
 		   <div>
 			   <ul>
@@ -66,22 +95,35 @@
 	 </div>
 	 
 	 <!-- Where functionality will happen -->
-	 <div class = "main">
-	   <div>main</div>
-	 </div>
+	<div class = "main">
+          <p></p> <!-- Não remover este paragrafo vazio-->
+	  <div id="alc1" style="display: none">
+	    <p onclick="doAlc2()">COLOQUE UMA MÃO NO ECRÃ</p>
+	    <img src="handy-hand.png">
+	    <button id="stop" onclick="goHome()">Cancelar</button>
+	  </div>
+	  <div id="alc2" style="display: none">
+	    <p>Resultado: 0,31 g/L</p>
+	    <p>É ilegal a condução no seu estado</p>
+	    <p>Peça a uma amigo que lhe leva a casa ou um taxi</p>
+	    <button id="ok" onclick="goHome()">Ok</button>
+	  </div>
+	</div>
 	 
 	 
-	 <div class = "right-sidebar">
-	   <ul>
-	     <li>PEDIR</li>
-		 <li>PAGAR</li>
-		 <li>MÚSICA</li>
-		 <li>JOGAR</li>
-		 <li>ALCOOLÍMETRO</li>
-		 <li>TAXI</li>
-		 <li>METEOROLOGIA</li>
-		 <li>CALENDÁRIO</li>
-	   </ul>
+	<div class = "right-sidebar">
+	  <div id="menu">
+      	    <ul>
+		<li onclick="notImplemented()">PEDIR</li>
+		<li onclick="notImplemented()">PAGAR</li>
+		<li onclick="notImplemented()">MÚSICA</li>
+		<li onclick="notImplemented()">JOGAR</li>
+		<li onclick="doAlc1()">ALCOOLÍMETRO</li>
+		<li onclick="notImplemented()">TAXI</li>
+		<li onclick="notImplemented()">METEOROLOGIA</li>
+		<li onclick="notImplemented()">CALENDÁRIO</li>
+	     </ul>
+           </div>  
 	 </div>
 	 
   </body>

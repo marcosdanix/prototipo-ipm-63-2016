@@ -1,18 +1,69 @@
 body {
-	font-family: Helvetica, Arial, sans-serif;	
+  font-family: Helvetica, Arial, sans-serif;	
+  background-color: black;
+  color: white;
+  font-size: 24pt;
+  line-height: 1.5em;
 }
 
-.left-sidebar {
-	width: 25%;
-	float: left;
+li {
+  list-style-type: none;
+}
+
+div.left-sidebar {
+  width: 25%;
+  min-height: 99vh;
+  float: left;
+  background-color: #222;
 }
 
 .main {
-	width: 49%;
-	float: left;
+  width: 49%;
+  float: left;
 }
 
 .right-sidebar {
-	width: 25%;
-	float: left;
+  width: 25%;
+  float: left;
+}
+
+div#popular > h3 {
+  text-align: left;
+}
+
+div#menu {
+  text-align: center;
+  line-height: 2em;
+}
+
+div#alc1 p {
+  text-align: center;
+}
+
+div#alc2 p {
+	margin-left: 1.5em;
+}
+
+div#alc1 img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  font-size: 24pt;
+  color: white;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#stop {
+  background-color: red;
+}
+
+#ok {
+  background-color: green;
 }
