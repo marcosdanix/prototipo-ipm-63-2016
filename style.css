@@ -2,7 +2,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;	
   background-color: black;
   color: white;
-  font-size: 24pt;
+  font-size: 20pt;
   line-height: 1.5em;
 }
 
@@ -53,17 +53,37 @@ div#alc1 img {
 button {
   border: none;
   font-size: 24pt;
-  color: white;
+  color: white;  
+}
+
+#stop {
   position: absolute;
   bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
-}
-
-#stop {
   background-color: red;
 }
 
 #ok {
-  background-color: green;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0a0;
+}
+
+.drink {
+	padding-right: 0.5em;
+}
+
+.drink button {
+	margin-right: 1em;
+}
+
+.drink > div {
+	text-align: right;
+}
+
+.more {
+	background-color: #0a0;
 }

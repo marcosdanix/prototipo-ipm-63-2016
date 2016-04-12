@@ -1,5 +1,5 @@
 <!doctype html>  
-<html>
+<html ng-app="BarISTa">
   <head>
     <title>BarISTa</title>
   <!--Nunca se esqueçam de meter esta linha no head de uma página HTML
@@ -10,18 +10,19 @@
   <!-- <script src="script.js"></script> -->
   <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
+  <script src="barista.js"></script>
   <script>
     var state;
 
      $(function() {
-       $("#popular").accordion({
+       $("#bebidas").accordion({
          collapsible: true,
          heightStyle: "content",
+         header: "h3",
        });
-
-       state = "home";
-    });
-
+     });
+    
     function notImplemented() {
       alert("Não está implementado");
     }
@@ -50,46 +51,20 @@
   </head>
   <body>
     <div class = "left-sidebar">
-      <div id="popular">
-        <h3>Popular</h3>
-        <div>
-          <ul>
-            <li>Pan Galactic Gargle Blaster</li>
-            <li>Jägerbomb</li>
-            <li>Piña Colada</li>
-            <li>Vodka</li>
-            <li>Martini</li>
-          </ul>
+      <div id="bebidas" ng-controller="drinkCtrl">
+        <div ng-repeat="drinkMenu in drinkMenus">
+          <h3>{{drinkMenu.category}}</h3>
+          <div>
+            <ul>
+	      <li ng-repeat="drinkId in drinkMenu.drinks">
+	        <div class="drink">
+                  {{drinks[drinkId].name}}
+	          <div><button class="more">+</button><span class="price">€5,00</span></div>
+	        </div>
+	      </li>
+            </ul>
+          </div>
         </div>
-        <h3>Bebidas Espirituosas</h3>
-        <div>
-          <ul>
-            <li>Vodka</li>
-            <li>Martini</li>
-            <li>Brandy</li>
-            <li>Whisky</li>
-          </ul>
-        </div>
-        <h3>Cocktails</h3>
-        <div>
-          <ul>
-            <li>Pan Galactic Gargle Blaster</li>
-            <li>Jägerbomb</li>
-            <li>Piña Colada</li>
-            <li>Margarita</li>
-            <li>Daiquiri</li>
-          </ul>
-        </div>
-        <h3>Bebidas Leves</h3>
-        <div>
-          <ul>
-            <li>Sangria</li>
-            <li>Vinho</li>
-            <li>Cerveja</li>
-            <li>Sidra</li>
-            <li>Sumo</li>
-         </ul>  
-       </div>
       </div>
     </div>
    
