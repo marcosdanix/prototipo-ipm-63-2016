@@ -59,7 +59,7 @@
 	      <li ng-repeat="drinkId in drinkMenu.drinks">
 	        <div class="drink">
                   {{drinks[drinkId].name}}
-	          <div><button class="more">+</button><span class="price">€5,00</span></div>
+	          <div><button class="more" ng-click="doOrder(drinkId)">+</button><span class="price">€5,00</span></div>
 	        </div>
 	      </li>
             </ul>
@@ -82,6 +82,15 @@
         <p>Peça a uma amigo que lhe leva a casa ou um taxi</p>
         <button id="ok" onclick="goHome()">Ok</button>
       </div>
+      <div id="order" ng-controller="orderCtrl" ng-style="{display: displayOrder}">
+        <div>PEDIDO</div>
+        <ul>
+          <li ng-repeat="(drinkId, amount) in getOrderList()">
+            {{drinks[drinkId].name + ' x' + amount}}
+          </li>
+        </ul>
+      </div>
+
     </div>
    
    

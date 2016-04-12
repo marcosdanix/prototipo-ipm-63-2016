@@ -87,3 +87,11 @@ button {
 .more {
 	background-color: #0a0;
 }
+
+#order {
+	background-color: #555;
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	
+}
