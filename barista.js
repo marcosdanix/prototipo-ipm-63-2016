@@ -6,7 +6,8 @@ barista.controller('drinkCtrl', ['$scope', 'drinkList', 'order', function ($scop
   $scope.drinkMenus = drinkList.drinkMenus;
   
   $scope.doOrder = function(id) {
-	order.add(id)
+	$("#order").show();
+	order.add(id);
   }
 
 }]);

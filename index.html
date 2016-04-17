@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
   <script src="barista.js"></script>
   <script>
-    var state;
+    var state="home";
 
      $(function() {
        $("#bebidas").accordion({
@@ -26,6 +26,15 @@
     function notImplemented() {
       alert("Não está implementado");
     }
+	
+	function doMusic() {
+		$("#music").show();
+	}
+	
+	function requestSong() {
+		$("#music").hide();
+		alert("A sua sugestão foi registada");
+	}
 
     function doAlc1() {
       if (state == "home") {
@@ -35,18 +44,29 @@
     }
 
     function doAlc2() {
-      setTimeout(function() {
-          $("#alc1").hide();
-          $("#alc2").show();
-        }, 4000);     
-      state = "alc2"; 
+        $("#alc1").hide();
+        $("#alc2").show();
+        state = "alc2"; 
     }
-
+		
     function goHome() {
       $("#alc1").hide();
       $("#alc2").hide();
+	  $("#music").hide();
+	  $("#order").hide();
       state = "home";
     }
+	
+	function hideAlc() {
+		$("#alc1").hide();
+		$("#alc2").hide();
+		state="home";
+	}
+	
+	function showOrder() {
+		$("#order").show();
+	}
+	
   </script>
   </head>
   <body>
@@ -74,15 +94,26 @@
       <div id="alc1" style="display: none">
         <p onclick="doAlc2()">COLOQUE UMA MÃO NO ECRÃ</p>
         <img src="handy-hand.png">
-        <button id="stop" onclick="goHome()">Cancelar</button>
+        <button id="stop" onclick="hideAlc()">Cancelar</button>
       </div>
       <div id="alc2" style="display: none">
         <p>Resultado: 0,31 g/L</p>
         <p>É ilegal a condução no seu estado</p>
         <p>Peça a uma amigo que lhe leva a casa ou um taxi</p>
-        <button id="ok" onclick="goHome()">Ok</button>
+        <button id="ok" onclick="hideAlc()">Ok</button>
       </div>
-      <div id="order" ng-controller="orderCtrl" ng-style="{display: displayOrder}">
+	  <div id="music" style="display: none">
+		<form action="">
+			<input type="radio" name="music" value="Closing">Semisonic - Closing Time<br>
+			<input type="radio" name="music" value="Believe">Journey - Don’t Stop Believing<br>
+			<input type="radio" name="music" value="Prayer">Bon Jovi - Livin’ on a Prayer<br>
+			<input type="radio" name="music" value="Caroline">Neil Diamond - Sweet Caroline<br>
+			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me
+		</form>
+		<button id="okmusic" onclick="requestSong()">Sugerir</button>
+		<button id="stopmusic" onclick="goHome()">Cancelar</button>
+	  </div>
+      <div id="order" ng-controller="orderCtrl" style="display: none">
         <div>PEDIDO</div>
         <ul>
           <li ng-repeat="(drinkId, amount) in getOrderList()">
@@ -97,14 +128,15 @@
     <div class = "right-sidebar">
       <div id="menu">
         <ul>
-          <li onclick="notImplemented()">PEDIR</li>
+          <li onclick="showOrder()">PEDIR</li>
           <li onclick="notImplemented()">PAGAR</li>
-          <li onclick="notImplemented()">MÚSICA</li>
+          <li onclick="doMusic()">MÚSICA</li>
           <li onclick="notImplemented()">JOGAR</li>
           <li onclick="doAlc1()">ALCOOLÍMETRO</li>
           <li onclick="notImplemented()">TAXI</li>
           <li onclick="notImplemented()">METEOROLOGIA</li>
           <li onclick="notImplemented()">CALENDÁRIO</li>
+          <li onclick="goHome()">REINICIAR MESA</li>
        </ul>
      </div>  
    </div>

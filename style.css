@@ -72,6 +72,14 @@ button {
   background-color: #0a0;
 }
 
+#okmusic {
+	background-color: green;
+}
+
+#stopmusic {
+	background-color: red;
+}
+
 .drink {
 	padding-right: 0.5em;
 }
