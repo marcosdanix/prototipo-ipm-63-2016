@@ -147,6 +147,10 @@ button {
 	background-color: #0a0;
 }
 
+.less {
+	background-color: red;
+}
+
 #order {
 	background-color: #555;
 	width: 60%;

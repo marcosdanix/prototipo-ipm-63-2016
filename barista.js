@@ -9,6 +9,10 @@ barista.controller('drinkCtrl', ['$scope', 'drinkList', 'order', function ($scop
 	$("#order").show();
 	order.add(id);
   }
+  
+  $scope.lessOrder=function(id) {
+	  order.deduct(id);
+  }
 
 }]);
 
@@ -56,6 +60,12 @@ barista.factory('order', ['drinkList', function (drinkList) {
 				orderList[id] = 1;
 			} else {
 				orderList[id]++;
+			}
+			console.log(orderList);
+		},
+		deduct: function(id) {
+			if (orderList[id]!=undefined && orderList[id]>0) {
+				orderList[id]--;
 			}
 			console.log(orderList);
 		},
