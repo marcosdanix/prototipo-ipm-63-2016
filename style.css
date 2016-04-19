@@ -26,6 +26,48 @@ div.left-sidebar {
   width: 25%;
   float: left;
 }
+.top-scrollbar {
+	position: relative;
+	width: 50%;
+}
+
+.top-scrollbar h3 {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: top-scrollbar 15s linear infinite;
+ -webkit-animation: top-scrollbar 15s linear infinite;
+ animation: top-scrollbar 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes top-scrollbar {
+ 0%   { -moz-transform: translateX(70%); }
+ 100% { -moz-transform: translateX(30%); }
+}
+@-webkit-keyframes top-scrollbar {
+ 0%   { -webkit-transform: translateX(70%); }
+ 100% { -webkit-transform: translateX(30%); }
+}
+@keyframes top-scrollbar {
+ 0%   { 
+ -moz-transform: translateX(70%); /* Firefox bug fix */
+ -webkit-transform: translateX(70%); /* Firefox bug fix */
+ transform: translateX(70%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(30%); /* Firefox bug fix */
+ -webkit-transform: translateX(30%); /* Firefox bug fix */
+ transform: translateX(30%); 
+ }
+}
 
 div#popular > h3 {
   text-align: left;
@@ -38,10 +80,12 @@ div#menu {
 
 div#alc1 p {
   text-align: center;
+  margin-top: 10%;
 }
 
 div#alc2 p {
   margin-left: 1.5em;
+  margin-top: 10%;
 }
 
 div#alc1 img {
@@ -98,8 +142,9 @@ button {
 
 #order {
 	background-color: #555;
-	width: 80%;
+	width: 60%;
 	margin: auto;
 	padding: 1em;
+	margin-top: 20%;
 	
 }
