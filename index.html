@@ -35,6 +35,10 @@
 		$("#music").hide();
 		alert("A sua sugestão foi registada");
 	}
+	
+	function cancelMusic() {
+		$("#music").hide();
+	}
 
     function doAlc1() {
       if (state == "home") {
@@ -65,6 +69,15 @@
 	
 	function showOrder() {
 		$("#order").show();
+	}
+	
+	function confirmOrder() {
+		$("#order").hide();
+		alert("O seu pedido foi registado!");
+	}
+	
+	function cancelOrder() {
+		$("#order").hide();
 	}
 	
   </script>
@@ -117,7 +130,7 @@
 			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me
 		</form>
 		<button id="okmusic" onclick="requestSong()">Sugerir</button>
-		<button id="stopmusic" onclick="goHome()">Cancelar</button>
+		<button id="stopmusic" onclick="cancelMusic()">Cancelar</button>
 	  </div>
       <div id="order" ng-controller="orderCtrl" style="display: none">
         <div>PEDIDO</div>
@@ -126,6 +139,8 @@
             {{drinks[drinkId].name + ' x' + amount}}
           </li>
         </ul>
+        <button id="okorder" onclick="confirmOrder()" ng-click="resetOrder()">Pedir</button>
+        <button id="cancelorder" onclick="cancelOrder()" ng-click="resetOrder()" >Cancelar</button>
       </div>
 
     </div>

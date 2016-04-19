@@ -131,6 +131,17 @@ button {
 	background-color: red;
 }
 
+#okorder {
+	background-color: green;
+	position: absolute;
+}
+
+#cancelorder {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
 .drink {
 	padding-right: 0.5em;
 }
