@@ -94,6 +94,13 @@ div#alc1 img {
   margin: 0 auto;
 }
 
+div#music {
+  text-align: left;
+  line-height: 2em;
+  margin-top: 20%;
+  margin-left: 10%;
+  
+}
 button {
   border: none;
   font-size: 24pt;
