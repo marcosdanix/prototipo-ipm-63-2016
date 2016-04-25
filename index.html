@@ -1,4 +1,4 @@
-<!doctype html>  
+<!doctype html>
 <html ng-app="BarISTa">
   <head>
     <title>BarISTa</title>
@@ -14,6 +14,7 @@
   <script src="barista.js"></script>
   <script>
     var state="home";
+	var musicqueue=[];
 
      $(function() {
        $("#bebidas").accordion({
@@ -28,16 +29,34 @@
     }
 	
 	function doMusic() {
+		$("#queue").show();
 		$("#music").show();
 	}
 	
-	function requestSong() {
+	function requestSong(value) {
+		if (musicqueue.indexOf(value)==-1) {
+			musicqueue+=convertMusic(value);
+			musicqueue+="<br><br>";
+		}
+		$("#queue").hide();
 		$("#music").hide();
-		alert("A sua sugestão foi registada");
+		changeText();
+		alert("A sua sugestão foi registada!");
 	}
 	
 	function cancelMusic() {
+		$("#queue").hide();
 		$("#music").hide();
+	}
+	
+	function convertMusic(value) {
+		switch(value) {
+			case "Closing": return "Semisonic - Closing Time";
+			case "Prayer": return "Bon Jovi - Livin’ on a Prayer";
+			case "Believe": return "Journey - Don’t Stop Believing";
+			case "Caroline": return "Neil Diamond - Sweet Caroline";
+			case "Sugar": return "Def Leppard - Pour Some Sugar on Me";
+		}
 	}
 
     function doAlc1() {
@@ -56,6 +75,7 @@
     function goHome() {
       $("#alc1").hide();
       $("#alc2").hide();
+	  $("queue").hide();
 	  $("#music").hide();
 	  $("#order").hide();
       state = "home";
@@ -65,6 +85,14 @@
 		$("#alc1").hide();
 		$("#alc2").hide();
 		state="home";
+	}
+	
+	function changeText() {
+		var songs=[];
+		for (i=0; i<musicqueue.length; i++) {
+			songs+=musicqueue[i];
+		}
+		document.getElementById("showqueue").innerHTML=songs;
 	}
 	
 	function showOrder() {
@@ -84,7 +112,7 @@
   </head>
   <body>
 	<div class = "top-scrollbar">
-      <div id="playing">
+      <div id="playing" onclick="doMusic()">
 	  <h3>A ouvir: Bon Jovi - Livin’ on a Prayer</h3>
       </div>  
 	</div>
@@ -111,8 +139,8 @@
     <div class = "main">
       <p></p> <!-- Não remover este paragrafo vazio-->
       <div id="alc1" style="display: none">
-        <p onclick="doAlc2()">COLOQUE UMA MÃO NO ECRÃ</p>
-        <img src="handy-hand.png">
+        <p>COLOQUE UMA MÃO NO ECRÃ</p>
+        <img src="handy-hand.png" onclick="doAlc2()">
         <button id="stop" onclick="hideAlc()">Cancelar</button>
       </div>
       <div id="alc2" style="display: none">
@@ -121,16 +149,24 @@
         <p>Peça a uma amigo que lhe leva a casa ou um taxi</p>
         <button id="ok" onclick="hideAlc()">Ok</button>
       </div>
+	  <div id="queue" style="display: none">
+		<p>A seguir:</p>
+		<p>Garth Brooks - Friends in Low Places</p>
+		<p>Van Morrison - Brown Eyed Girl</p>
+		<p>LMFAO - Shots</p>
+		<p id="showqueue"></p>
+	  </div>
 	  <div id="music" style="display: none">
-		<form action="">
+		<p>Sugira uma música:</p>
+		<form action="" onSubmit="event.preventDefault()">
 			<input type="radio" name="music" value="Closing">Semisonic - Closing Time<br>
 			<input type="radio" name="music" value="Believe">Journey - Don’t Stop Believing<br>
 			<input type="radio" name="music" value="Prayer">Bon Jovi - Livin’ on a Prayer<br>
 			<input type="radio" name="music" value="Caroline">Neil Diamond - Sweet Caroline<br>
-			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me
+			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me<br>
+			<button id="okmusic" onclick="requestSong(music.value)">Sugerir</button>
+			<button id="stopmusic" onclick="cancelMusic()">Cancelar</button>
 		</form>
-		<button id="okmusic" onclick="requestSong()">Sugerir</button>
-		<button id="stopmusic" onclick="cancelMusic()">Cancelar</button>
 	  </div>
       <div id="order" ng-controller="orderCtrl" style="display: none">
         <div>PEDIDO</div>
