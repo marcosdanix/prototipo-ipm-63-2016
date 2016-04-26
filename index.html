@@ -41,9 +41,13 @@
 		$("#queue").hide();
 		$("#music").hide();
 		changeText();
-		alert("A sua sugestão foi registada!");
+		$("#musicalert").show();
 	}
 	
+	function hideMusicAlert() {
+		$("#musicalert").hide();	
+	}
+
 	function cancelMusic() {
 		$("#queue").hide();
 		$("#music").hide();
@@ -75,7 +79,7 @@
     function goHome() {
       $("#alc1").hide();
       $("#alc2").hide();
-	  $("queue").hide();
+	  $("#queue").hide();
 	  $("#music").hide();
 	  $("#order").hide();
       state = "home";
@@ -84,9 +88,26 @@
 	function hideAlc() {
 		$("#alc1").hide();
 		$("#alc2").hide();
+		$("#alc3").hide();
+		$("#alc4").hide();
+		$("#alc5").hide();
 		state="home";
 	}
 	
+	function randAlc() {
+		$("#alc1").hide();
+		switch(Math.floor(Math.random()* 4 ) + 1) {
+			case 1: $("#alc2").show();
+				break;
+			case 2: $("#alc3").show();
+				break;
+			case 3: $("#alc4").show();
+				break;
+			case 4: $("#alc5").show();
+				break;
+		}
+	}	
+
 	function changeText() {
 		var songs=[];
 		for (i=0; i<musicqueue.length; i++) {
@@ -99,9 +120,14 @@
 		$("#order").show();
 	}
 	
+
+	function hideOrderAlert() {
+		$("#orderalert").hide();
+	}
+
 	function confirmOrder() {
 		$("#order").hide();
-		alert("O seu pedido foi registado!");
+		$("#orderalert").show();;
 	}
 	
 	function cancelOrder() {
@@ -140,15 +166,45 @@
       <p></p> <!-- Não remover este paragrafo vazio-->
       <div id="alc1" style="display: none">
         <p>COLOQUE UMA MÃO NO ECRÃ</p>
-        <img src="handy-hand.png" onclick="doAlc2()">
+        <img src="handy-hand.png" onclick="randAlc()">
         <button id="stop" onclick="hideAlc()">Cancelar</button>
       </div>
       <div id="alc2" style="display: none">
-        <p>Resultado: 0,31 g/L</p>
+        <p>Resultado: 0,6 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
         <p>É ilegal a condução no seu estado</p>
-        <p>Peça a uma amigo que lhe leva a casa ou um taxi</p>
+        <p>Peça a um amigo que o leve a casa ou chame um táxi.</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="calltaxi" onclick="notImplemented(); hideAlc()">Chamar Táxi</button>
+      </div>
+      <div id="alc3" style="display: none">
+        <p>Resultado: 0,1 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Apresenta um estado ainda bastante aceitável.</p>
+        <p>Que tal pedir mais uma bebida?</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
+      </div>
+      <div id="alc4" style="display: none">
+        <p>Resultado: 0,00 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Parece que alguem ainda não bebeu nada.</p>
+        <p>Está na altura de pedir uma bebida</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
+      </div>
+      <div id="alc5" style="display: none">
+        <p>Resultado: 1,2 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Wow, apresenta um estado lastimável.</p>
+        <p>Convém parar de beber...</p>
         <button id="ok" onclick="hideAlc()">Ok</button>
       </div>
+	<div id="orderalert" style="display: none">
+		<p>O seu pedido foi registado!</p>
+		<button id="hideorderalert" onclick="hideOrderAlert()">OK</button>
+	</div>
+
+	<div id="musicalert" style="display: none">
+		<p>A sua sugestão foi registada!</p>
+		<button id="hidemusicalert" onclick="hideMusicAlert()">OK</button>
+	</div>
 	  <div id="queue" style="display: none">
 		<p>A seguir:</p>
 		<p>Garth Brooks - Friends in Low Places</p>
