@@ -73,6 +73,7 @@ barista.factory('order', ['drinkList', function (drinkList) {
 		deduct: function(id) {
 			if (orderList[id]!=undefined && orderList[id]>0) {
 				orderList[id]--;
+				if (orderList[id]==0) delete orderList[id];
 			}
 			console.log(orderList);
 		},

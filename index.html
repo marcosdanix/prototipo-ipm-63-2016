@@ -77,11 +77,12 @@
     }
 		
     function goHome() {
-      $("#alc1").hide();
-      $("#alc2").hide();
-	  $("#queue").hide();
-	  $("#music").hide();
-	  $("#order").hide();
+	  hideAlc();
+	  cancelMusic();
+	  hideMusicAlert();
+	  hideOrderAlert();
+	  cancelOrder();
+	  hideCab();
       state = "home";
     }
 	
@@ -134,6 +135,14 @@
 		$("#order").hide();
 	}
 	
+	function callCab() {
+		$("#cabalert").show();
+	}
+	
+	function hideCab() {
+		$("#cabalert").hide();
+	}
+	
   </script>
   </head>
   <body>
@@ -174,7 +183,7 @@
         <p>É ilegal a condução no seu estado</p>
         <p>Peça a um amigo que o leve a casa ou chame um táxi.</p>
         <button id="ok" onclick="hideAlc()">Ignorar</button>
-	<button id="calltaxi" onclick="notImplemented(); hideAlc()">Chamar Táxi</button>
+	<button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
       </div>
       <div id="alc3" style="display: none">
         <p>Resultado: 0,1 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
@@ -195,6 +204,7 @@
         <p>Wow, apresenta um estado lastimável.</p>
         <p>Convém parar de beber...</p>
         <button id="ok" onclick="hideAlc()">Ok</button>
+        <button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
       </div>
 	<div id="orderalert" style="display: none">
 		<p>O seu pedido foi registado!</p>
@@ -204,6 +214,10 @@
 	<div id="musicalert" style="display: none">
 		<p>A sua sugestão foi registada!</p>
 		<button id="hidemusicalert" onclick="hideMusicAlert()">OK</button>
+	</div>
+	<div id="cabalert" style="display: none">
+		<p>Foi chamado um táxi para si!</p>
+		<button id="hidecabalert" onclick="hideCab()">OK</button>
 	</div>
 	  <div id="queue" style="display: none">
 		<p>A seguir:</p>
@@ -238,7 +252,7 @@
     </div>
    
    
-    <div class = "right-sidebar">
+    <div class = "right-sidebar" ng-controller="orderCtrl">
       <div id="menu">
         <ul>
           <li onclick="showOrder()">PEDIR</li>
@@ -246,10 +260,10 @@
           <li onclick="doMusic()">MÚSICA</li>
           <li onclick="notImplemented()">JOGAR</li>
           <li onclick="doAlc1()">ALCOOLÍMETRO</li>
-          <li onclick="notImplemented()">TAXI</li>
+          <li onclick="callCab()">TAXI</li>
           <li onclick="notImplemented()">METEOROLOGIA</li>
           <li onclick="notImplemented()">CALENDÁRIO</li>
-          <li onclick="goHome()">REINICIAR MESA</li>
+          <li onclick="goHome()" ng-click="resetOrder()">REINICIAR MESA</li>
        </ul>
      </div>  
    </div>
