@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>  
 <html ng-app="BarISTa">
   <head>
@@ -149,3 +150,277 @@
    
   </body>
 </html>
+=======
+<!doctype html>
+<html ng-app="BarISTa">
+  <head>
+    <title>BarISTa</title>
+  <!--Nunca se esqueçam de meter esta linha no head de uma página HTML
+      E verifiquem que estão usar UTF-8 -->
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Os scripts aqui -->
+  <!-- <script src="script.js"></script> -->
+  <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
+  <script src="barista.js"></script>
+  <script>
+    var state="home";
+	var musicqueue=[];
+
+     $(function() {
+       $("#bebidas").accordion({
+         collapsible: true,
+         heightStyle: "content",
+         header: "h3",
+       });
+     });
+    
+    function notImplemented() {
+      alert("Não está implementado");
+    }
+	
+	function doMusic() {
+		$("#queue").show();
+		$("#music").show();
+	}
+	
+	function requestSong(value) {
+		if (musicqueue.indexOf(value)==-1) {
+			musicqueue+=convertMusic(value);
+			musicqueue+="<br><br>";
+		}
+		$("#queue").hide();
+		$("#music").hide();
+		changeText();
+		$("#musicalert").show();
+	}
+	
+	function hideMusicAlert() {
+		$("#musicalert").hide();	
+	}
+
+	function cancelMusic() {
+		$("#queue").hide();
+		$("#music").hide();
+	}
+	
+	function convertMusic(value) {
+		switch(value) {
+			case "Closing": return "Semisonic - Closing Time";
+			case "Prayer": return "Bon Jovi - Livin’ on a Prayer";
+			case "Believe": return "Journey - Don’t Stop Believing";
+			case "Caroline": return "Neil Diamond - Sweet Caroline";
+			case "Sugar": return "Def Leppard - Pour Some Sugar on Me";
+		}
+	}
+
+    function doAlc1() {
+      if (state == "home") {
+        $("#alc1").show();
+        state = "alc1";
+      }
+    }
+
+    function doAlc2() {
+        $("#alc1").hide();
+        $("#alc2").show();
+        state = "alc2"; 
+    }
+		
+    function goHome() {
+	  hideAlc();
+	  cancelMusic();
+	  hideMusicAlert();
+	  hideOrderAlert();
+	  cancelOrder();
+	  hideCab();
+      state = "home";
+    }
+	
+	function hideAlc() {
+		$("#alc1").hide();
+		$("#alc2").hide();
+		$("#alc3").hide();
+		$("#alc4").hide();
+		$("#alc5").hide();
+		state="home";
+	}
+	
+	function randAlc() {
+		$("#alc1").hide();
+		switch(Math.floor(Math.random()* 4 ) + 1) {
+			case 1: $("#alc2").show();
+				break;
+			case 2: $("#alc3").show();
+				break;
+			case 3: $("#alc4").show();
+				break;
+			case 4: $("#alc5").show();
+				break;
+		}
+	}	
+
+	function changeText() {
+		var songs=[];
+		for (i=0; i<musicqueue.length; i++) {
+			songs+=musicqueue[i];
+		}
+		document.getElementById("showqueue").innerHTML=songs;
+	}
+	
+	function showOrder() {
+		$("#order").show();
+	}
+	
+
+	function hideOrderAlert() {
+		$("#orderalert").hide();
+	}
+
+	function confirmOrder() {
+		$("#order").hide();
+		$("#orderalert").show();;
+	}
+	
+	function cancelOrder() {
+		$("#order").hide();
+	}
+	
+	function callCab() {
+		$("#cabalert").show();
+	}
+	
+	function hideCab() {
+		$("#cabalert").hide();
+	}
+	
+  </script>
+  </head>
+  <body>
+	<div class = "top-scrollbar">
+      <div id="playing" onclick="doMusic()">
+	  <h3>A ouvir: Bon Jovi - Livin’ on a Prayer</h3>
+      </div>  
+	</div>
+	
+    <div class = "left-sidebar">
+      <div id="bebidas" ng-controller="drinkCtrl">
+        <div ng-repeat="drinkMenu in drinkMenus">
+          <h3>{{drinkMenu.category}}</h3>
+          <div>
+            <ul>
+	      <li ng-repeat="drinkId in drinkMenu.drinks">
+	        <div class="drink">
+                  {{drinks[drinkId].name}}
+	          <div><button class="more" ng-click="doOrder(drinkId)">+</button><button class="less" ng-click="lessOrder(drinkId)">-</button><span class="price">€5,00</span></div>
+	        </div>
+	      </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+   <!-- Where functionality will happen -->
+    <div class = "main">
+      <p></p> <!-- Não remover este paragrafo vazio-->
+      <div id="alc1" style="display: none">
+        <p>COLOQUE UMA MÃO NO ECRÃ</p>
+        <img src="handy-hand.png" onclick="randAlc()">
+        <button id="stop" onclick="hideAlc()">Cancelar</button>
+      </div>
+      <div id="alc2" style="display: none">
+        <p>Resultado: 0,6 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>É ilegal a condução no seu estado</p>
+        <p>Peça a um amigo que o leve a casa ou chame um táxi.</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
+      </div>
+      <div id="alc3" style="display: none">
+        <p>Resultado: 0,1 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Apresenta um estado ainda bastante aceitável.</p>
+        <p>Que tal pedir mais uma bebida?</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
+      </div>
+      <div id="alc4" style="display: none">
+        <p>Resultado: 0,00 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Parece que alguem ainda não bebeu nada.</p>
+        <p>Está na altura de pedir uma bebida</p>
+        <button id="ok" onclick="hideAlc()">Ignorar</button>
+	<button id="showorder" onclick="showOrder(); hideAlc()">Pedir Bebida</button>
+      </div>
+      <div id="alc5" style="display: none">
+        <p>Resultado: 1,2 g/L &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; Limite Legal: 0,5 g/L</p>
+        <p>Wow, apresenta um estado lastimável.</p>
+        <p>Convém parar de beber...</p>
+        <button id="ok" onclick="hideAlc()">Ok</button>
+        <button id="calltaxi" onclick="callCab(); hideAlc()">Chamar Táxi</button>
+      </div>
+	<div id="orderalert" style="display: none">
+		<p>O seu pedido foi registado!</p>
+		<button id="hideorderalert" onclick="hideOrderAlert()">OK</button>
+	</div>
+
+	<div id="musicalert" style="display: none">
+		<p>A sua sugestão foi registada!</p>
+		<button id="hidemusicalert" onclick="hideMusicAlert()">OK</button>
+	</div>
+	<div id="cabalert" style="display: none">
+		<p>Foi chamado um táxi para si!</p>
+		<button id="hidecabalert" onclick="hideCab()">OK</button>
+	</div>
+	  <div id="queue" style="display: none">
+		<p>A seguir:</p>
+		<p>Garth Brooks - Friends in Low Places</p>
+		<p>Van Morrison - Brown Eyed Girl</p>
+		<p>LMFAO - Shots</p>
+		<p id="showqueue"></p>
+	  </div>
+	  <div id="music" style="display: none">
+		<p>Sugira uma música:</p>
+		<form action="" onSubmit="event.preventDefault()">
+			<input type="radio" name="music" value="Closing">Semisonic - Closing Time<br>
+			<input type="radio" name="music" value="Believe">Journey - Don’t Stop Believing<br>
+			<input type="radio" name="music" value="Prayer">Bon Jovi - Livin’ on a Prayer<br>
+			<input type="radio" name="music" value="Caroline">Neil Diamond - Sweet Caroline<br>
+			<input type="radio" name="music" value="Sugar">Def Leppard - Pour Some Sugar on Me<br>
+			<button id="okmusic" onclick="requestSong(music.value)">Sugerir</button>
+			<button id="stopmusic" onclick="cancelMusic()">Cancelar</button>
+		</form>
+	  </div>
+      <div id="order" ng-controller="orderCtrl" style="display: none">
+        <div>PEDIDO</div>
+        <ul>
+          <li ng-repeat="(drinkId, amount) in getOrderList()">
+            {{drinks[drinkId].name + ' x' + amount}}
+          </li>
+        </ul>
+        <button id="okorder" onclick="confirmOrder()" ng-click="resetOrder()">Pedir</button>
+        <button id="cancelorder" onclick="cancelOrder()" ng-click="resetOrder()" >Cancelar</button>
+      </div>
+
+    </div>
+   
+   
+    <div class = "right-sidebar" ng-controller="orderCtrl">
+      <div id="menu">
+        <ul>
+          <li onclick="showOrder()">PEDIR</li>
+          <li onclick="notImplemented()">PAGAR</li>
+          <li onclick="doMusic()">MÚSICA</li>
+          <li onclick="notImplemented()">JOGAR</li>
+          <li onclick="doAlc1()">ALCOOLÍMETRO</li>
+          <li onclick="callCab()">TAXI</li>
+          <li onclick="notImplemented()">METEOROLOGIA</li>
+          <li onclick="notImplemented()">CALENDÁRIO</li>
+          <li onclick="goHome()" ng-click="resetOrder()">REINICIAR MESA</li>
+       </ul>
+     </div>  
+   </div>
+   
+  </body>
+</html>
+>>>>>>> ce2d24df4a328649b5f7753fb8b321458ae9f722

@@ -13,6 +13,8 @@ barista.controller('drinkCtrl', ['$scope', 'drinkList', 'order', function ($scop
   $scope.lessOrder=function(id) {
 	  order.deduct(id);
   }
+  
+
 
 }]);
 
@@ -21,6 +23,11 @@ barista.controller('orderCtrl', ['$scope', 'drinkList', 'order', function($scope
   $scope.getOrderList = function () {
 	  return order.get();
   }
+  
+  $scope.resetOrder=function() {
+	  order.reset();
+  }
+  
   $scope.drinks = drinkList.drinks;  
 }]);
 
@@ -66,7 +73,12 @@ barista.factory('order', ['drinkList', function (drinkList) {
 		deduct: function(id) {
 			if (orderList[id]!=undefined && orderList[id]>0) {
 				orderList[id]--;
+				if (orderList[id]==0) delete orderList[id];
 			}
+			console.log(orderList);
+		},
+		reset: function() {
+			orderList = {};
 			console.log(orderList);
 		},
 		get: function () {
