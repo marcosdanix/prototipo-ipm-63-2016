@@ -1,7 +1,8 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background-image: url("barISTa_bg.jpg");	
-  background-size: 100%;
+ /* background-image: url("barISTa_bg.jpg");	
+  background-size: 100%; */
+  background-color: black;
   color: white;
   font-size: 20pt;
   line-height: 1.5em;
