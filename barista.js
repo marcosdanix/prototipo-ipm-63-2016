@@ -25,7 +25,12 @@ barista.controller('orderCtrl', ['$scope', 'drinkList', 'order', function($scope
   }
   
   $scope.resetOrder=function() {
+	  document.getElementById("tab").innerHTML="CONTA: "+order.tally()+"€";
 	  order.reset();
+  }
+  
+  $scope.tallyOrder=function() {
+	  return order.tally();
   }
   
   $scope.drinks = drinkList.drinks;  
@@ -61,6 +66,7 @@ barista.factory('drinkList', function () {
 
 barista.factory('order', ['drinkList', function (drinkList) {
 	var orderList = {};
+	var tab=0;
 	return {
 		add: function(id) {
 			if (orderList[id] == undefined) {
@@ -80,6 +86,10 @@ barista.factory('order', ['drinkList', function (drinkList) {
 		reset: function() {
 			orderList = {};
 			console.log(orderList);
+		},
+		tally: function() {
+			for (value in orderList) tab+=orderList[value]*5;
+			return tab;
 		},
 		get: function () {
 			return orderList;
