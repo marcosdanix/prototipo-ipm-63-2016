@@ -15,7 +15,6 @@
   <script>
     var state="home";
 	var musicqueue=[];
-	var ordered=0;
 
      $(function() {
        $("#bebidas").accordion({
@@ -28,15 +27,7 @@
     function notImplemented() {
       alert("Não está implementado");
     }
-	
-	function increaseOrder() {
-		ordered++;
-	}
-	
-	function decreaseOrder() {
-		if (ordered) ordered--;
-	}
-	
+    
 	function doMusic() {
 		$("#queue").show();
 		$("#music").show();
@@ -126,14 +117,9 @@
 		document.getElementById("showqueue").innerHTML=songs;
 	}
 	
-	function updateTab() {
-		document.getElementById("tabcount").innerHTML="CONTA: "+ordered*5+"€";
-	}
-	
 	function showOrder() {
 		$("#order").show();
 	}
-	
 
 	function hideOrderAlert() {
 		$("#orderalert").hide();
@@ -178,7 +164,7 @@
 	      <li ng-repeat="drinkId in drinkMenu.drinks">
 	        <div class="drink">
                   {{drinks[drinkId].name}}
-	          <div><button class="more" onclick="increaseOrder()" ng-click="doOrder(drinkId)">+</button><button class="less" onclick="decreaseOrder()" ng-click="lessOrder(drinkId)">-</button><span class="price">€5,00</span></div>
+	          <div><button class="more" ng-click="doOrder(drinkId)">+</button><button class="less" ng-click="lessOrder(drinkId)">-</button><span class="price">€5,00</span></div>
 	        </div>
 	      </li>
             </ul>
