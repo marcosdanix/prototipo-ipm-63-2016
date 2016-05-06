@@ -8,8 +8,13 @@ body {
   line-height: 1.5em;
 }
 
+
 li {
   list-style-type: none;
+}
+
+.menudireita {
+	border: 10px solid #4CAF50;
 }
 
 div.left-sidebar {
@@ -134,7 +139,7 @@ div#queue {
 button {
   border: none;
   font-size: 24pt;
-  color: white;  
+  color: white; 
 }
 
 #hideorderalert {
@@ -170,12 +175,25 @@ button {
     position: absolute;
 }
 
+#hidehelpalert {
+	background-color: green;
+    position: absolute;
+}
+
 #cabalert {
 	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
 	margin-top: 20%;
+}
+
+#helpalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 15%;
 }
 
 #stop {

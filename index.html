@@ -83,6 +83,7 @@
 	  hideOrderAlert();
 	  cancelOrder();
 	  hideCab();
+	  hideHelp();
       state = "home";
     }
 	
@@ -140,6 +141,14 @@
 	
 	function hideCab() {
 		$("#cabalert").hide();
+	}
+	
+	function goHelp() {
+		$("#helpalert").show();
+	}
+	
+	function hideHelp() {
+		$("#helpalert").hide();
 	}
 	
   </script>
@@ -222,6 +231,15 @@
 		<p>Foi chamado um táxi para si!</p>
 		<button id="hidecabalert" onclick="hideCab()">OK</button>
 	</div>
+	<div id="helpalert" style="display: none">
+		<p>Pode usar o menu apresentado á sua esquerda para adicionar as bebidas que deseja pedir, para isso deve selecionar o uma das secções apresentadas e da lista que irá aparecer adicionar ou remover o número de bebidas que pretenda.</p>
+		<p></p>
+		<p>Por exemplo: Seleciona "Popular", e carrega no "+" em "Vodka" para adicionar uma vodka ao seu pedido.</p>
+		<p></p>
+		<p>Pode usar o menu apresentado á sua direita para aceder ás várias opções que tem disponiveis, carregando em cima da opção que pretenda.</p>
+		<p></p>
+		<button id="hidehelpalert" onclick="hideHelp()">OK</button>
+	</div>
 	  <div id="queue" style="display: none">
 		<p>A seguir:</p>
 		<p>Garth Brooks - Friends in Low Places</p>
@@ -258,7 +276,7 @@
     <div class = "right-sidebar" ng-controller="orderCtrl">
       <div id="menu">
         <ul>
-          <li onclick="showOrder()">PEDIR</li>
+		  <li onclick="showOrder()">PEDIR</li>
           <li onclick="notImplemented()">PAGAR</li>
           <li onclick="doMusic()">MÚSICA</li>
           <li onclick="notImplemented()">JOGAR</li>
@@ -267,6 +285,7 @@
           <li onclick="notImplemented()">METEOROLOGIA</li>
           <li onclick="notImplemented()">CALENDÁRIO</li>
           <li onclick="goHome()" ng-click="resetOrder()">REINICIAR MESA</li>
+		  <li onclick="goHelp()">AJUDA</li>  
        </ul>
      </div>  
    </div>
