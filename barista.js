@@ -15,7 +15,6 @@ barista.controller('drinkCtrl', ['$scope', 'drinkList', 'order', function ($scop
   }
   
 
-
 }]);
 
 barista.controller('orderCtrl', ['$scope', 'drinkList', 'order', function($scope, drinkList, order) {
@@ -29,11 +28,19 @@ barista.controller('orderCtrl', ['$scope', 'drinkList', 'order', function($scope
 	  order.reset();
   }
   
+  $scope.counttozero=function() {
+	  document.getElementById("tab").innerHTML="CONTA: "+order.tabtozero()+"€";
+	  order.reset();
+  }
+  
+  
   $scope.tallyOrder=function() {
 	  return order.tally();
   }
   
   $scope.drinks = drinkList.drinks;  
+  
+
 }]);
 
 barista.factory('drinkList', function () {
@@ -93,6 +100,12 @@ barista.factory('order', ['drinkList', function (drinkList) {
 		},
 		get: function () {
 			return orderList;
+		},
+		tabtozero: function(){
+			if(tab !=0)
+				tab=0;
+			return tab;
 		}
+		
 	}
 }]);

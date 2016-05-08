@@ -84,6 +84,9 @@
 	  cancelOrder();
 	  hideCab();
 	  hideHelp();
+	  hidePay();
+	  hideconfirmPay();
+	  hidefinalizePay();
       state = "home";
     }
 	
@@ -149,6 +152,26 @@
 	
 	function hideHelp() {
 		$("#helpalert").hide();
+	}
+	function goPay() {
+		$("#payalert").show();
+	}
+	function hidePay() {
+		$("#payalert").hide();
+	}
+	function confirmPay() {
+		$("#payalert").hide();
+		$("#confirmpayalert").show();
+	}
+	function hideconfirmPay() {
+		$("#confirmpayalert").hide();
+	}
+	function finalizePay() {
+		$("#confirmpayalert").hide();
+		$("#payedalert").show();
+	}
+	function hidefinalizePay() {
+		$("#payedalert").hide();
 	}
 	
   </script>
@@ -267,9 +290,26 @@
           </li>
         </ul>
         <button id="okorder" onclick="confirmOrder()" ng-click="resetOrder()">Pedir</button>
-        <button id="cancelorder" onclick="cancelOrder()" ng-click="resetOrder()" >Cancelar</button>
-      </div>
-
+        <button id="cancelorder" onclick="cancelOrder()" >Cancelar</button>
+     </div>
+	<div id="payalert" style="display: none">
+		<p>O valor da sua conta é o apresentado no canto superior esquerdo. </p>
+		<p></p>
+		<p>Pretende pagar esse valor?</p>
+		<p></p>
+		<button id="Pay" onclick="confirmPay()">Pagar</button>
+		<button id="CancelPay" onclick="hidePay()">Cancel</button>
+	</div>
+	<div id="confirmpayalert" style="display: none">
+		<p>Tem a certeza que pretende pagar?</p>
+		<button id="Confirm" onclick="finalizePay()" ng-click="counttozero()">Confirmar</button>
+		<button id="CancelConfirm" onclick="hideconfirmPay()">Cancel</button>
+	</div>
+	<div id="payedalert" style="display: none">
+		<p>A sua conta foi paga.</p>
+		<button id="OkPay" onclick="hidefinalizePay()">Ok</button>
+	</div>
+	
     </div>
    
    
@@ -277,7 +317,7 @@
       <div id="menu">
         <ul>
 		  <li onclick="showOrder()">PEDIR</li>
-          <li onclick="notImplemented()">PAGAR</li>
+          <li onclick="goPay()">PAGAR</li>
           <li onclick="doMusic()">MÚSICA</li>
           <li onclick="notImplemented()">JOGAR</li>
           <li onclick="doAlc1()">ALCOOLÍMETRO</li>

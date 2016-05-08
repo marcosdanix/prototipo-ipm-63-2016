@@ -1,11 +1,12 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
- /* background-image: url("barISTa_bg.jpg");	
-  background-size: 100%; */
+  background-image: url("imagemteste.jpg");	
+  background-size: 100%;
   background-color: black;
   color: white;
   font-size: 20pt;
   line-height: 1.5em;
+  margin: 100px 150px 100px 80px;
 }
 
 
@@ -239,6 +240,57 @@ button {
 }
 
 #cancelorder {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+#payalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#confirmpayalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#payedalert {
+	background: rgba(128, 128, 128, 0.7);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#Pay {
+	background-color: green;
+    position: absolute;
+}
+
+#Confirm {
+	background-color: green;
+    position: absolute;
+}
+
+#OkPay {
+	background-color: green;
+    position: absolute;
+}
+
+#CancelPay {
+	background-color: red;
+	position: absolute;
+	left: 50%;
+}
+
+#CancelConfirm {
 	background-color: red;
 	position: absolute;
 	left: 50%;
