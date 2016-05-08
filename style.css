@@ -170,7 +170,7 @@ div#music {
   text-align: left;
   line-height: 2em;
   margin-top: 5%;
-  margin-left: 10%;
+ 
 
   
 }
@@ -179,7 +179,7 @@ div#queue {
   text-align: left;
   line-height: 1em;
   margin-top: 10%;
-  margin-left: 10%;
+  
   
 }
 button {
@@ -231,6 +231,7 @@ button {
 	margin:auto;
 	margin-top: 20%;
 	
+	
 }
 #musicalert {
 	background: rgba(128, 128, 128, 0.7);
@@ -270,7 +271,6 @@ button {
 
 #stop {
   position: absolute;
-  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   background-color: red;
@@ -278,22 +278,18 @@ button {
 
 #ok {
   position: absolute;
-  left: 30%;
-  transform: translateX(-50%);
   background-color: #0a0;
 }
 
 #calltaxi {
   position: absolute;
-  left: 60%;
-  transform: translateX(-50%);
+  left: 50%;
   background-color: blue;
 }
 
 #showorder {
   position: absolute;
-  left: 60%;
-  transform: translateX(-50%);
+  left: 50%;
   background-color: blue;
 }
 
@@ -370,6 +366,37 @@ button {
 	left: 50%;
 }
 
+#alc2 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc3 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc4 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
+
+#alc5 {
+	background: rgba(128, 128, 128, 0.7);
+	width: 80%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+}
 .drink {
 	padding-right: 0.5em;
 }
