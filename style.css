@@ -43,7 +43,7 @@ li {
 div.left-sidebar {
   width: 25%;
   min-height: 99vh;
-  float: left;%
+  float: left;
 }
 
 .left-sidebar h3{
@@ -56,6 +56,8 @@ div.left-sidebar {
   background: #000000;
   padding: 5px 10px 5px 10px;
   border: solid #050505 2px;
+  text-align: center;
+  vertical-align: middle;
 }
 .left-sidebar h3:hover{
   background: #eff4f7;
@@ -186,7 +188,7 @@ button {
 }
 
 #order {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -200,7 +202,7 @@ button {
 }
 
 #orderalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -215,7 +217,7 @@ button {
 
 
 #music {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.8);
 	width: 60%;
 	margin:auto;
 	
@@ -223,14 +225,14 @@ button {
 }
 
 #queue{
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.8);
 	width: 60%;
 	margin:auto;
 	margin-top: 20%;
 	
 }
 #musicalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -250,7 +252,7 @@ button {
 }
 
 #cabalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -258,7 +260,7 @@ button {
 }
 
 #helpalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 80%;
 	margin: auto;
 	padding: 1em;
@@ -317,7 +319,7 @@ button {
 }
 
 #payalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -325,7 +327,7 @@ button {
 }
 
 #confirmpayalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -333,7 +335,7 @@ button {
 }
 
 #payedalert {
-	background: rgba(128, 128, 128, 1);
+	background: rgba(128, 128, 128, 0.7);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
