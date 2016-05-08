@@ -264,14 +264,14 @@
 		<button id="hidehelpalert" onclick="hideHelp()">OK</button>
 	</div>
 	  <div id="queue" style="display: none">
-		<p>A seguir:</p>
+		<p><b>A seguir:</b></p>
 		<p>Garth Brooks - Friends in Low Places</p>
 		<p>Van Morrison - Brown Eyed Girl</p>
 		<p>LMFAO - Shots</p>
 		<p id="showqueue"></p>
 	  </div>
 	  <div id="music" style="display: none">
-		<p>Sugira uma música:</p>
+		<p><b>Sugira uma música:</b></p>
 		<form action="" onSubmit="event.preventDefault()">
 			<input type="radio" name="music" value="Closing">Semisonic - Closing Time<br>
 			<input type="radio" name="music" value="Believe">Journey - Don’t Stop Believing<br>
@@ -313,8 +313,9 @@
     </div>
    
    
-    <div class = "right-sidebar" ng-controller="orderCtrl">
-      <div id="menu">
+    
+	<div id="menu">
+	  <div class = "right-sidebar" ng-controller="orderCtrl">
         <ul>
 		  <li onclick="showOrder()">PEDIR</li>
           <li onclick="goPay()">PAGAR</li>

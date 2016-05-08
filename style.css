@@ -14,15 +14,50 @@ li {
   list-style-type: none;
 }
 
-.menudireita {
-	border: 10px solid #4CAF50;
+.right-sidebar li{
+  -webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #000000;
+  padding: 5px 10px 5px 10px;
+  border: solid #050505 2px;
+}
+.right-sidebar li:hover{
+  background: #eff4f7;
+  background-image: -webkit-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -moz-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -ms-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -o-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: linear-gradient(to bottom, #eff4f7, #0c0d0d);
 }
 
 div.left-sidebar {
   width: 25%;
   min-height: 99vh;
-  float: left;
-  background: rgba(0, 0, 0, 0.5);
+  float: left;%
+}
+
+.left-sidebar h3{
+	-webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #000000;
+  padding: 5px 10px 5px 10px;
+  border: solid #050505 2px;
+}
+.left-sidebar h3:hover{
+  background: #eff4f7;
+  background-image: -webkit-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -moz-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -ms-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: -o-linear-gradient(top, #eff4f7, #0c0d0d);
+  background-image: linear-gradient(to bottom, #eff4f7, #0c0d0d);
 }
 
 .main {
@@ -33,7 +68,6 @@ div.left-sidebar {
 .right-sidebar {
   width: 25%;
   float: left;
-  background: rgba(0, 0, 0, 0.5);
 }
 .top-scrollbar {
 	position: relative;
@@ -80,6 +114,7 @@ div.left-sidebar {
 
 div#popular > h3 {
   text-align: left;
+
 }
 
 div#menu {
@@ -143,13 +178,22 @@ button {
   color: white; 
 }
 
+#order {
+	background: rgba(128, 128, 128, 1);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
 #hideorderalert {
   background-color: green;
   position: absolute;
 }
 
 #orderalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -162,14 +206,33 @@ button {
   position: absolute;
 }
 
-#musicalert {
-	background: rgba(128, 128, 128, 0.7);
+
+#music {
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
 	margin-top: 20%;
 	
 }
+
+#queue{
+	background: rgba(128, 128, 128, 1);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 10%;
+	
+}
+#musicalert {
+	background: rgba(128, 128, 128, 1);
+	width: 60%;
+	margin: auto;
+	padding: 1em;
+	margin-top: 20%;
+	
+}
+
 
 #hidecabalert {
 	background-color: green;
@@ -182,7 +245,7 @@ button {
 }
 
 #cabalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -190,7 +253,7 @@ button {
 }
 
 #helpalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 80%;
 	margin: auto;
 	padding: 1em;
@@ -228,10 +291,13 @@ button {
 
 #okmusic {
 	background-color: green;
+	position:absolute;
 }
 
 #stopmusic {
 	background-color: red;
+	position:absolute;
+	left: 50%;
 }
 
 #okorder {
@@ -246,7 +312,7 @@ button {
 }
 
 #payalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -254,7 +320,7 @@ button {
 }
 
 #confirmpayalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -262,7 +328,7 @@ button {
 }
 
 #payedalert {
-	background: rgba(128, 128, 128, 0.7);
+	background: rgba(128, 128, 128, 1);
 	width: 60%;
 	margin: auto;
 	padding: 1em;
@@ -316,11 +382,4 @@ button {
 	background-color: red;
 }
 
-#order {
-	background: rgba(128, 128, 128, 0.7);
-	width: 60%;
-	margin: auto;
-	padding: 1em;
-	margin-top: 20%;
-	
-}
+
