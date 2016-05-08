@@ -1,3 +1,4 @@
+
 body {
   font-family: Helvetica, Arial, sans-serif;
   background-image: url("imagemteste.jpg");	
@@ -6,7 +7,12 @@ body {
   color: white;
   font-size: 20pt;
   line-height: 1.5em;
-  margin: 100px 150px 100px 80px;
+  margin: 50px 150px 100px 80px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 
@@ -160,8 +166,9 @@ div#alc1 img {
 div#music {
   text-align: left;
   line-height: 2em;
-  margin-top: 15%;
+  margin-top: 5%;
   margin-left: 10%;
+
   
 }
 
@@ -210,18 +217,16 @@ button {
 #music {
 	background: rgba(128, 128, 128, 1);
 	width: 60%;
-	margin: auto;
-	padding: 1em;
-	margin-top: 20%;
+	margin:auto;
+	
 	
 }
 
 #queue{
 	background: rgba(128, 128, 128, 1);
 	width: 60%;
-	margin: auto;
-	padding: 1em;
-	margin-top: 10%;
+	margin:auto;
+	margin-top: 20%;
 	
 }
 #musicalert {

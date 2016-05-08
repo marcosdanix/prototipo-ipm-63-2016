@@ -16,6 +16,8 @@
     var state="home";
 	var musicqueue=[];
 
+	
+	
      $(function() {
        $("#bebidas").accordion({
          collapsible: true,
@@ -300,9 +302,9 @@
 		<button id="Pay" onclick="confirmPay()">Pagar</button>
 		<button id="CancelPay" onclick="hidePay()">Cancel</button>
 	</div>
-	<div id="confirmpayalert" style="display: none">
+	<div id="confirmpayalert" ng-controller="orderCtrl" style="display: none">
 		<p>Tem a certeza que pretende pagar?</p>
-		<button id="Confirm" onclick="finalizePay()" ng-click="counttozero()">Confirmar</button>
+		<button id="Confirm" ng-click="countTozero()" onclick="finalizePay()">Confirmar</button>
 		<button id="CancelConfirm" onclick="hideconfirmPay()">Cancel</button>
 	</div>
 	<div id="payedalert" style="display: none">
@@ -317,6 +319,7 @@
 	<div id="menu">
 	  <div class = "right-sidebar" ng-controller="orderCtrl">
         <ul>
+		  <li onclick="goHome()">INICIO</li>
 		  <li onclick="showOrder()">PEDIR</li>
           <li onclick="goPay()">PAGAR</li>
           <li onclick="doMusic()">MÚSICA</li>
@@ -325,7 +328,6 @@
           <li onclick="callCab()">TAXI</li>
           <li onclick="notImplemented()">METEOROLOGIA</li>
           <li onclick="notImplemented()">CALENDÁRIO</li>
-          <li onclick="goHome()" ng-click="resetOrder()">REINICIAR MESA</li>
 		  <li onclick="goHelp()">AJUDA</li>  
        </ul>
      </div>  

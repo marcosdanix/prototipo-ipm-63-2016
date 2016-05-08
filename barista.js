@@ -28,11 +28,14 @@ barista.controller('orderCtrl', ['$scope', 'drinkList', 'order', function($scope
 	  order.reset();
   }
   
-  $scope.counttozero=function() {
+  $scope.countTozero=function() {
 	  document.getElementById("tab").innerHTML="CONTA: "+order.tabtozero()+"€";
 	  order.reset();
   }
   
+  $scope.tabOrder=function() {
+	  return order.tabtozero();
+  }
   
   $scope.tallyOrder=function() {
 	  return order.tally();
@@ -102,8 +105,7 @@ barista.factory('order', ['drinkList', function (drinkList) {
 			return orderList;
 		},
 		tabtozero: function(){
-			if(tab !=0)
-				tab=0;
+			tab=0;
 			return tab;
 		}
 		
