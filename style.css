@@ -109,11 +109,11 @@ div.left-sidebar {
 /* Move it (define the animation) */
 @-moz-keyframes top-scrollbar {
  0%   { -moz-transform: translateX(70%); }
- 100% { -moz-transform: translateX(30%); }
+ 100% { -moz-transform: translateX(35%); }
 }
 @-webkit-keyframes top-scrollbar {
  0%   { -webkit-transform: translateX(70%); }
- 100% { -webkit-transform: translateX(30%); }
+ 100% { -webkit-transform: translateX(35%); }
 }
 @keyframes top-scrollbar {
  0%   { 
@@ -122,9 +122,9 @@ div.left-sidebar {
  transform: translateX(70%); 		
  }
  100% { 
- -moz-transform: translateX(30%); /* Firefox bug fix */
- -webkit-transform: translateX(30%); /* Firefox bug fix */
- transform: translateX(30%); 
+ -moz-transform: translateX(35%); /* Firefox bug fix */
+ -webkit-transform: translateX(35%); /* Firefox bug fix */
+ transform: translateX(35%); 
  }
 }
 
