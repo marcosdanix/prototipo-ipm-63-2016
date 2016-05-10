@@ -192,7 +192,7 @@
     <div class = "left-sidebar">
       <div id="bebidas" ng-controller="drinkCtrl">
         <div ng-repeat="drinkMenu in drinkMenus">
-          <h3>{{drinkMenu.category}}</h3>
+          <h3><img ng-src="{{drinkMenu.image}}"></img>{{drinkMenu.category}}</h3>
           <div>
             <ul class="drink-panel">
 	      <li ng-repeat="drinkId in drinkMenu.drinks">
@@ -253,7 +253,7 @@
 		<button id="hidemusicalert" onclick="hideMusicAlert()">OK</button>
 	</div>
 	<div id="cabalert" style="display: none">
-		<p>Foi chamado um táxi para si!</p>
+		<p>Foi chamado o táxi 83 para si!</p>
 		<button id="hidecabalert" onclick="hideCab()">OK</button>
 	</div>
 	<div id="helpalert" style="display: none">
@@ -300,12 +300,12 @@
 		<p>Pretende pagar esse valor?</p>
 		<p></p>
 		<button id="Pay" onclick="confirmPay()">Pagar</button>
-		<button id="CancelPay" onclick="hidePay()">Cancel</button>
+		<button id="CancelPay" onclick="hidePay()">Cancelar</button>
 	</div>
 	<div id="confirmpayalert" ng-controller="orderCtrl" style="display: none">
 		<p>Tem a certeza que pretende pagar?</p>
 		<button id="Confirm" ng-click="countTozero()" onclick="finalizePay()">Confirmar</button>
-		<button id="CancelConfirm" onclick="hideconfirmPay()">Cancel</button>
+		<button id="CancelConfirm" onclick="hideconfirmPay()">Cancelar</button>
 	</div>
 	<div id="payedalert" style="display: none">
 		<p>A sua conta foi paga.</p>
@@ -319,16 +319,16 @@
 	<div id="menu">
 	  <div class = "right-sidebar" ng-controller="orderCtrl">
         <ul>
-		  <li onclick="goHome()">INICIO</li>
-		  <li onclick="showOrder()">PEDIR</li>
-          <li onclick="goPay()">PAGAR</li>
-          <li onclick="doMusic()">MÚSICA</li>
-          <li onclick="notImplemented()">JOGAR</li>
-          <li onclick="doAlc1()">ALCOOLÍMETRO</li>
-          <li onclick="callCab()">TAXI</li>
-          <li onclick="notImplemented()">METEOROLOGIA</li>
-          <li onclick="notImplemented()">CALENDÁRIO</li>
-		  <li onclick="goHelp()">AJUDA</li>  
+		  <li onclick="goHome()"><img src="home.png"/></image>INICIO</li>
+		  <li onclick="showOrder()"><img src="pedir.png"/></image>PEDIR</li>
+          <li onclick="goPay()"><img src="pay.png"/></image>PAGAR</li>
+          <li onclick="doMusic()"><img src="music.png"/></image>MÚSICA</li>
+          <li onclick="notImplemented()"><img src="jogar.png"/></image>JOGAR</li>
+          <li onclick="doAlc1()"><img src="alcoolimetro.png"/></image>ALCOOLÍMETRO</li>
+          <li onclick="callCab()"><img src="taxi.png"/></image>TAXI</li>
+          <li onclick="notImplemented()"><img src="weather.png"/></image>METEOROLOGIA</li>
+          <li onclick="notImplemented()"><img src="calendar.png"/></image>CALENDÁRIO</li>
+		  <li onclick="goHelp()"><img src="help.png"/></image>AJUDA</li>  
        </ul>
      </div>  
    </div>

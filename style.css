@@ -41,6 +41,20 @@ li {
   background-image: linear-gradient(to bottom, #eff4f7, #0c0d0d);
 }
 
+.left-sidebar img{
+
+  height:25px;
+  width:25px;
+  margin-right:1em;
+}
+
+.right-sidebar img{
+
+  height:25px;
+  width:25px;
+  margin-right:1em;
+}
+
 div.left-sidebar {
   width: 25%;
   min-height: 99vh;

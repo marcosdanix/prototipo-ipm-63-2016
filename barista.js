@@ -66,10 +66,10 @@ barista.factory('drinkList', function () {
 		},
 		
 		drinkMenus: [
-			{category: "Popular", drinks: [5, 6, 7, 1, 2]},
-			{category: "Bebidas Espirituosas", drinks: [1, 2, 3, 4]},
-			{category: "Cocktails", drinks: [5, 6, 7, 8, 9]},
-			{category: "Bebidas Leves", drinks: [10, 11, 12, 13, 14]}	
+			{category: "Popular", image:"like.png", drinks: [5, 6, 7, 1, 2]},
+			{category: "Bebidas Espirituosas", image:"spiritual.png", drinks: [1, 2, 3, 4]},
+			{category: "Cocktails", image:"cocktail.png", drinks: [5, 6, 7, 8, 9]},
+			{category: "Bebidas Leves", image:"beer.png", drinks: [10, 11, 12, 13, 14]}	
 		],
 	}	
 });
