@@ -47,6 +47,13 @@ div.left-sidebar {
   float: left;
 }
 
+.drink-panel {
+	background-color: rgba(0,0,0,0.66);
+	margin: -0.5em 0;
+	border-radius: 14pt;
+	padding: 20px 0 20px 20px;
+}
+
 .left-sidebar h3{
 	-webkit-border-radius: 34;
   -moz-border-radius: 34;
